@@ -1,6 +1,6 @@
 FROM	ubuntu:14.04
 
-ENV GRAFANA_VERSION 1.9.1
+ENV GRAFANA_VERSION 4.0.1-1480694114.linux-x64
 ENV INFLUXDB_VERSION 0.8.8
 
 # Prevent some error messages
@@ -23,7 +23,7 @@ RUN 	apt-get -y install wget nginx-light supervisor curl
 
 # Install Grafana to /src/grafana
 RUN		mkdir -p src/grafana && cd src/grafana && \
-			wget http://grafanarel.s3.amazonaws.com/grafana-${GRAFANA_VERSION}.tar.gz -O grafana.tar.gz && \
+			wget https://grafanarel.s3.amazonaws.com/builds/grafana-${GRAFANA_VERSION}.tar.gz -O grafana.tar.gz && \
 			tar xzf grafana.tar.gz --strip-components=1 && rm grafana.tar.gz
 
 # Install InfluxDB
